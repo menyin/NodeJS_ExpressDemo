@@ -8,11 +8,15 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+var partials = require('express-partials');//添加布局母版功能
+
 var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));//设置模板文件夹
 app.set('view engine', 'ejs');//设置模板引擎为ejs
+app.use(partials());//添加布局母版功能
+
 /*还有其他设置：
 basepath 基础机制，通常用于res.redirect()跳转
 port 指定端口
@@ -27,8 +31,8 @@ jsonp callback 开启透明jsonp支持*/
 app.use(logger('dev')); //日志
 app.use(bodyParser.json());//用于解析客户端请求，这样我们就可以通过req.body.title获取请求数据
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(cookieParser());//用于cookie解析
+app.use(express.static(path.join(__dirname, 'public')));//用于设置静态资源路由
 
 app.use('/', routes);//用于路由的支持
 app.use('/users', users);

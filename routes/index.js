@@ -11,10 +11,10 @@ router.get('/index', function(req, res, next) {
 router.get(/index.*/gi, function(req, res, next) {//²âÊÔurlµÄÕıÔòÆ¥Åä
   res.render('index', { title: 'Express'});
 });
-router.get('/testLayout', function(req, res, next) {
-  res.render('testLayout', { title: 'Express',layout:'layout'});
-});
-router.get('/testLayout2', function(req, res, next) {
-  res.render('testLayout', { title: 'Express',layout:'layout2'});
-});
+//router.get('/testLayout', function(req, res, next) {
+//  res.render('testLayout', { title: 'Express',layout:'layout'});
+//});
+//router.get('/testLayout2', function(req, res, next) {
+//  res.render('testLayout', { title: 'Express',layout:'layout2'});
+//});
 module.exports = router;
