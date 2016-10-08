@@ -1,4 +1,4 @@
-var express = require('express');
+ï»¿var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
 var logger = require('morgan');
@@ -8,33 +8,33 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
-var partials = require('express-partials');//Ìí¼Ó²¼¾ÖÄ¸°æ¹¦ÄÜ
+var partials = require('express-partials');//æ·»åŠ å¸ƒå±€æ¯ç‰ˆåŠŸèƒ½
 
 var app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));//ÉèÖÃÄ£°åÎÄ¼ş¼Ğ
-app.set('view engine', 'ejs');//ÉèÖÃÄ£°åÒıÇæÎªejs
-app.use(partials());//Ìí¼Ó²¼¾ÖÄ¸°æ¹¦ÄÜ
+app.set('views', path.join(__dirname, 'views'));//è®¾ç½®æ¨¡æ¿æ–‡ä»¶å¤¹
+app.set('view engine', 'ejs');//è®¾ç½®æ¨¡æ¿å¼•æ“ä¸ºejs
+app.use(partials());//æ·»åŠ å¸ƒå±€æ¯ç‰ˆåŠŸèƒ½
 
-/*»¹ÓĞÆäËûÉèÖÃ£º
-basepath »ù´¡»úÖÆ£¬Í¨³£ÓÃÓÚres.redirect()Ìø×ª
-port Ö¸¶¨¶Ë¿Ú
-view options È«¾ÖÊÓÍ¼²ÎÊı¶ÔÏó
-view cache ÆôÓÃÊÓÍ¼»º´æ
-case sensitive routes Â·¾¶urlÇø·Ö´óĞ¡Ğ´
-strict routing ÑÏ¸ñÂ·¾¶£¬¿Í»§¶Ë·ÃÎÊurlÊÇ²»ÄÜºöÂÔÄ©Î²µÄ/,·ñÔò·ÃÎÊ²»µ½
-jsonp callback ¿ªÆôÍ¸Ã÷jsonpÖ§³Ö*/
+/*è¿˜æœ‰å…¶ä»–è®¾ç½®ï¼š
+basepath åŸºç¡€æœºåˆ¶ï¼Œé€šå¸¸ç”¨äºres.redirect()è·³è½¬
+port æŒ‡å®šç«¯å£
+view options å…¨å±€è§†å›¾å‚æ•°å¯¹è±¡
+view cache å¯ç”¨è§†å›¾ç¼“å­˜
+case sensitive routes è·¯å¾„urlåŒºåˆ†å¤§å°å†™
+strict routing ä¸¥æ ¼è·¯å¾„ï¼Œå®¢æˆ·ç«¯è®¿é—®urlæ˜¯ä¸èƒ½å¿½ç•¥æœ«å°¾çš„/,å¦åˆ™è®¿é—®ä¸åˆ°
+jsonp callback å¼€å¯é€æ˜jsonpæ”¯æŒ*/
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
-app.use(logger('dev')); //ÈÕÖ¾
-app.use(bodyParser.json());//ÓÃÓÚ½âÎö¿Í»§¶ËÇëÇó£¬ÕâÑùÎÒÃÇ¾Í¿ÉÒÔÍ¨¹ıreq.body.title»ñÈ¡ÇëÇóÊı¾İ
+app.use(logger('dev')); //æ—¥å¿—
+app.use(bodyParser.json());//ç”¨äºè§£æå®¢æˆ·ç«¯è¯·æ±‚ï¼Œè¿™æ ·æˆ‘ä»¬å°±å¯ä»¥é€šè¿‡req.body.titleè·å–è¯·æ±‚æ•°æ®
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());//ÓÃÓÚcookie½âÎö
-app.use(express.static(path.join(__dirname, 'public')));//ÓÃÓÚÉèÖÃ¾²Ì¬×ÊÔ´Â·ÓÉ
+app.use(cookieParser());//ç”¨äºcookieè§£æ
+app.use(express.static(path.join(__dirname, 'public')));//ç”¨äºè®¾ç½®é™æ€èµ„æºè·¯ç”±
 
-app.use('/', routes);//ÓÃÓÚÂ·ÓÉµÄÖ§³Ö
+app.use('/', routes);//ç”¨äºè·¯ç”±çš„æ”¯æŒ
 app.use('/users', users);
 
 // catch 404 and forward to error handler
@@ -46,9 +46,9 @@ app.use(function(req, res, next) {
 
 // error handlers
 
-// development error handler//¿ª·¢Ä£Ê½
+// development error handler//å¼€å‘æ¨¡å¼
 // will print stacktrace
-if (app.get('env') === 'development') {//µ±Ó¦ÓÃÎª¡°¿ª·¢Ä£Ê½¡±Ê±£¬´íÎó²¶×½ºó²ÉÈ¡µÄ´¦Àí
+if (app.get('env') === 'development') {//å½“åº”ç”¨ä¸ºâ€œå¼€å‘æ¨¡å¼â€æ—¶ï¼Œé”™è¯¯æ•æ‰åé‡‡å–çš„å¤„ç†
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
     res.render('error', {
@@ -60,7 +60,7 @@ if (app.get('env') === 'development') {//µ±Ó¦ÓÃÎª¡°¿ª·¢Ä£Ê½¡±Ê±£¬´íÎó²¶×½ºó²ÉÈ¡µ
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {//µ±Ó¦ÓÃÎª·Ç¡°¿ª·¢Ä£Ê½¡±Ê±£¬´íÎó²¶×½ºó²ÉÈ¡µÄ´¦Àí
+app.use(function(err, req, res, next) {//å½“åº”ç”¨ä¸ºéâ€œå¼€å‘æ¨¡å¼â€æ—¶ï¼Œé”™è¯¯æ•æ‰åé‡‡å–çš„å¤„ç†
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
