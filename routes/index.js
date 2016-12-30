@@ -1,4 +1,4 @@
-var express = require('express');
+ï»¿var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
@@ -8,7 +8,7 @@ router.get('/', function(req, res, next) {
 router.get('/index', function(req, res, next) {
   res.render('index', { title: 'Express'});
 });
-router.get(/index.*/gi, function(req, res, next) {//²âÊÔurlµÄÕıÔòÆ¥Åä
+router.get(/index.*/gi, function(req, res, next) {//æµ‹è¯•urlçš„æ­£åˆ™åŒ¹é…
   res.render('index', { title: 'Express'});
 });
 //router.get('/testLayout', function(req, res, next) {

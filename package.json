@@ -6,6 +6,9 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "connect": ">= 1.x",
+    "connect-mongo": ">= 0.1.7",
+    "mongodb": "*",
     "body-parser": "~1.15.1",
     "cookie-parser": "~1.4.3",
     "debug": "~2.2.0",

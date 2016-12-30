@@ -36,6 +36,8 @@ app.use(express.static(path.join(__dirname, 'public')));//用于设置静态资�
 
 app.use('/', routes);//用于路由的支持
 app.use('/users', users);
+var mongodbtest= require('./routes/mongodbTest');
+app.use('/mongodbtest', mongodbtest);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
